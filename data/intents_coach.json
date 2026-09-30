@@ -1,0 +1,394 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": [
+        "bonjour",
+        "salut",
+        "coucou",
+        "hello",
+        "bonsoir",
+        "hey",
+        "hi",
+        "bonne journée",
+        "yo"
+      ],
+      "responses": [
+        "Bonjour ! Je suis votre coach sportif personnel 💪",
+        "Salut ! Heureux de vous accompagner !",
+        "Hello ! Prêt à créer votre programme sur mesure ?"
+      ]
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": [
+        "au revoir",
+        "bye",
+        "à bientôt",
+        "ciao",
+        "tchao",
+        "bonne soirée",
+        "bonne nuit",
+        "je pars",
+        "arrêter"
+      ],
+      "responses": [
+        "À bientôt ! Bonne séance 🏃",
+        "Au revoir ! La régularité est la clé du succès 🔥",
+        "Ciao ! Revenez me voir pour suivre votre progression !"
+      ]
+    },
+    {
+      "tag": "objectif_poids",
+      "patterns": [
+        "perdre du poids",
+        "maigrir",
+        "mincir",
+        "brûler des graisses",
+        "perdre des kilos",
+        "perte de poids",
+        "affiner ma silhouette",
+        "brûler des calories",
+        "sécher",
+        "réduire ma masse graisseuse",
+        "perdre du ventre",
+        "ventre plat",
+        "éliminer les graisses",
+        "perdre du gras",
+        "perte de gras"
+      ],
+      "responses": [
+        "Objectif perte de poids noté ! 🔥"
+      ]
+    },
+    {
+      "tag": "objectif_muscle",
+      "patterns": [
+        "prendre de la masse",
+        "musculation",
+        "devenir plus fort",
+        "muscle",
+        "bodybuilding",
+        "prise de masse",
+        "développer mes muscles",
+        "grossir en muscle",
+        "renforcement musculaire",
+        "hypertrophie",
+        "sculpter mon corps",
+        "tonifier",
+        "force",
+        "prendre du muscle"
+      ],
+      "responses": [
+        "Objectif renforcement musculaire noté ! 💪"
+      ]
+    },
+    {
+      "tag": "objectif_endurance",
+      "patterns": [
+        "améliorer mon endurance",
+        "courir plus longtemps",
+        "cardio",
+        "marathon",
+        "course à pied",
+        "vélo",
+        "natation",
+        "triathlon",
+        "souffle",
+        "cardio-vasculaire",
+        "résistance",
+        "endurance",
+        "10km",
+        "semi-marathon",
+        "améliorer ma condition physique",
+        "courir",
+        "running"
+      ],
+      "responses": [
+        "Objectif endurance et cardio noté ! 🏃"
+      ]
+    },
+    {
+      "tag": "objectif_forme",
+      "patterns": [
+        "rester en forme",
+        "santé",
+        "bien-être",
+        "me sentir mieux",
+        "souplesse",
+        "flexibilité",
+        "yoga",
+        "pilates",
+        "équilibre",
+        "forme générale",
+        "maintien",
+        "garder la forme",
+        "rester actif",
+        "stress",
+        "me détendre",
+        "relaxation",
+        "bien etre"
+      ],
+      "responses": [
+        "Objectif bien-être et forme générale noté ! 🧘"
+      ]
+    },
+    {
+      "tag": "niveau_debutant",
+      "patterns": [
+        "débutant",
+        "jamais fait de sport",
+        "je commence",
+        "novice",
+        "pas d'expérience",
+        "sédentaire",
+        "je ne fais pas de sport",
+        "premier programme",
+        "tout nouveau",
+        "commencer le sport",
+        "j'ai arrêté depuis longtemps",
+        "reprise",
+        "debutant"
+      ],
+      "responses": [
+        "Niveau débutant noté 🌱"
+      ]
+    },
+    {
+      "tag": "niveau_intermediaire",
+      "patterns": [
+        "intermédiaire",
+        "quelques mois de sport",
+        "pratique régulière",
+        "1 an de sport",
+        "2 ans",
+        "assez expérimenté",
+        "niveau moyen",
+        "je m'entraine parfois",
+        "quelques fois par semaine",
+        "intermediaire",
+        "moyen"
+      ],
+      "responses": [
+        "Niveau intermédiaire noté 📈"
+      ]
+    },
+    {
+      "tag": "niveau_avance",
+      "patterns": [
+        "avancé",
+        "expert",
+        "plusieurs années de sport",
+        "compétition",
+        "je m'entraîne tous les jours",
+        "sportif confirmé",
+        "athlète",
+        "je connais bien",
+        "niveau élevé",
+        "avance",
+        "confirme"
+      ],
+      "responses": [
+        "Niveau avancé noté 🏆"
+      ]
+    },
+    {
+      "tag": "contrainte_blessure",
+      "patterns": [
+        "blessure",
+        "mal au genou",
+        "douleur épaule",
+        "problème de dos",
+        "tendinite",
+        "hernie discale",
+        "arthrose",
+        "opéré",
+        "fracture",
+        "entorse",
+        "claquage",
+        "douleur",
+        "mal au dos",
+        "lombalgie",
+        "genou",
+        "épaule",
+        "dos"
+      ],
+      "responses": [
+        "Blessure notée — programme adapté 📝"
+      ]
+    },
+    {
+      "tag": "contrainte_temps",
+      "patterns": [
+        "peu de temps",
+        "30 minutes",
+        "45 minutes",
+        "séances courtes",
+        "pas beaucoup de temps",
+        "surchargé",
+        "occupé",
+        "manque de temps",
+        "pas le temps"
+      ],
+      "responses": [
+        "Contrainte de temps notée ⏰"
+      ]
+    },
+    {
+      "tag": "contrainte_materiel",
+      "patterns": [
+        "pas de salle de sport",
+        "à la maison",
+        "sans matériel",
+        "haltères",
+        "tapis",
+        "élastiques",
+        "poids de maison",
+        "extérieur",
+        "home gym",
+        "maison"
+      ],
+      "responses": [
+        "Contrainte matérielle notée 🏠"
+      ]
+    },
+    {
+      "tag": "changer_exercice",
+      "patterns": [
+        "changer un exercice",
+        "remplacer exercice",
+        "je n'aime pas",
+        "exercice alternatif",
+        "substituer",
+        "autre exercice",
+        "modifier mon programme",
+        "exercice de remplacement",
+        "remplacer",
+        "alternative",
+        "changer",
+        "supprimer exercice",
+        "enlever exercice",
+        "je veux changer",
+        "remplace"
+      ],
+      "responses": [
+        "Quel exercice souhaitez-vous remplacer ?"
+      ]
+    },
+    {
+      "tag": "question_programme",
+      "patterns": [
+        "comment faire",
+        "technique",
+        "comment exécuter",
+        "comment réaliser",
+        "conseils sur",
+        "expliquer",
+        "je ne comprends pas",
+        "comment",
+        "explique"
+      ],
+      "responses": [
+        "Je vous explique 🤖"
+      ]
+    },
+    {
+      "tag": "motivation",
+      "patterns": [
+        "je suis découragé",
+        "c'est trop dur",
+        "j'abandonne",
+        "pas motivé",
+        "à quoi ça sert",
+        "j'ai du mal",
+        "je n'y arrive pas",
+        "je veux arrêter",
+        "c'est inutile",
+        "je suis fatigué",
+        "découragé",
+        "abandonne",
+        "fatigue"
+      ],
+      "responses": [
+        "Ne lâchez pas ! 💪 Chaque séance compte !",
+        "Les résultats arrivent. Continuez ! 🌟",
+        "Les champions ont aussi des mauvais jours. Revenez ! 🔥"
+      ]
+    },
+    {
+      "tag": "progression",
+      "patterns": [
+        "mes stats",
+        "mon évolution",
+        "résultats",
+        "mes progrès",
+        "voir mon historique",
+        "bilan",
+        "combien de séances",
+        "statistiques",
+        "progression",
+        "stats"
+      ],
+      "responses": [
+        "Voici votre tableau de bord 📊"
+      ]
+    },
+    {
+      "tag": "telecharger_pdf",
+      "patterns": [
+        "télécharger mon programme",
+        "exporter en pdf",
+        "avoir le pdf",
+        "sauvegarder programme",
+        "imprimer programme",
+        "pdf",
+        "telecharger",
+        "télécharger"
+      ],
+      "responses": [
+        "Génération du PDF en cours 📄"
+      ]
+    },
+    {
+      "tag": "seance_faite",
+      "patterns": [
+        "j'ai fait ma séance",
+        "séance terminée",
+        "workout done",
+        "j'ai fait mon entrainement",
+        "séance faite",
+        "c'est fait",
+        "entrainement terminé",
+        "j ai fait",
+        "seance faite"
+      ],
+      "responses": [
+        "Bravo ! Séance enregistrée 🎉"
+      ]
+    },
+    {
+      "tag": "aide",
+      "patterns": [
+        "aide",
+        "help",
+        "je ne comprends pas",
+        "comment ça marche",
+        "que peux-tu faire",
+        "quelles commandes",
+        "expliquer"
+      ],
+      "responses": [
+        "Je peux : créer votre programme, suivre votre progression, télécharger le PDF, remplacer des exercices !"
+      ]
+    },
+    {
+      "tag": "inconnu",
+      "patterns": [],
+      "responses": [
+        "Je n'ai pas bien compris. Pouvez-vous reformuler ?",
+        "Hmm, pouvez-vous préciser ?",
+        "Pouvez-vous reformuler autrement ?"
+      ]
+    }
+  ]
+}

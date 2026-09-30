@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach Sportif IA</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ═══ SIDEBAR ═══════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-header">
+      <div class="logo">🏋️</div>
+      <div>
+        <h1 class="logo-titre">Coach Sportif</h1>
+        <p class="logo-sous">Intelligence Artificielle</p>
+      </div>
+    </div>
+
+    <!-- Statut Ollama -->
+    <div class="ollama-badge" id="ollama-badge">
+      <span class="badge-dot" id="ollama-dot"></span>
+      <span id="ollama-texte">Vérification IA...</span>
+    </div>
+
+    <!-- Fiche coureur -->
+    <div class="fiche-coureur" id="fiche-coureur">
+      <h3 class="fiche-titre">👤 Votre profil</h3>
+
+      <!-- IMC -->
+      <div class="fiche-imc" id="fiche-imc" style="display:none">
+        <div class="imc-valeur" id="imc-valeur">—</div>
+        <div class="imc-label" id="imc-label">IMC</div>
+        <div class="imc-barre-container">
+          <div class="imc-barre" id="imc-barre"></div>
+          <div class="imc-curseur" id="imc-curseur"></div>
+        </div>
+        <div class="imc-echelle">
+          <span>Maigreur</span>
+          <span>Normal</span>
+          <span>Surpoids</span>
+          <span>Obésité</span>
+        </div>
+      </div>
+
+      <!-- Infos profil -->
+      <div class="fiche-infos">
+        <div class="fiche-ligne">
+          <span class="fiche-icone">🎯</span>
+          <div>
+            <div class="fiche-cle">Objectif</div>
+            <div class="fiche-val" id="val-objectif">—</div>
+          </div>
+        </div>
+        <div class="fiche-ligne">
+          <span class="fiche-icone">📊</span>
+          <div>
+            <div class="fiche-cle">Niveau</div>
+            <div class="fiche-val" id="val-niveau">—</div>
+          </div>
+        </div>
+        <div class="fiche-ligne">
+          <span class="fiche-icone">📅</span>
+          <div>
+            <div class="fiche-cle">Fréquence</div>
+            <div class="fiche-val" id="val-frequence">—</div>
+          </div>
+        </div>
+        <div class="fiche-ligne">
+          <span class="fiche-icone">⚠️</span>
+          <div>
+            <div class="fiche-cle">Contraintes</div>
+            <div class="fiche-val" id="val-contraintes">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Piste d'athlétisme progression -->
+      <div class="piste-container" id="piste-container" style="display:none">
+        <h4 class="piste-titre">🏃 Progression</h4>
+        <div class="piste">
+          <div class="piste-fond"></div>
+          <div class="piste-coureur" id="piste-coureur">🏃</div>
+          <div class="piste-arrivee">🏁</div>
+        </div>
+        <div class="piste-stats">
+          <span id="piste-seances">0 séances</span>
+          <span id="piste-jours">0 jours</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Boutons actions -->
+    <div class="sidebar-actions">
+      <button class="btn-action" id="btn-pdf" disabled onclick="telechargerPDF()">
+        📄 Télécharger PDF
+      </button>
+      <button class="btn-action btn-secondary" onclick="nouvelleSession()">
+        ↺ Nouvelle session
+      </button>
+    </div>
+
+    <!-- État machine à états -->
+    <div class="etat-container">
+      <div class="etat-label">Étape en cours</div>
+      <div class="etats-liste" id="etats-liste">
+        <div class="etat-item active" data-etat="imc">📏 IMC</div>
+        <div class="etat-item" data-etat="objectif">🎯 Objectif</div>
+        <div class="etat-item" data-etat="niveau">📊 Niveau</div>
+        <div class="etat-item" data-etat="contraintes">⚠️ Contraintes</div>
+        <div class="etat-item" data-etat="frequence">📅 Fréquence</div>
+        <div class="etat-item" data-etat="suivi">✅ Suivi</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══ ZONE CHAT ══════════════════════════════════════ -->
+  <main class="chat-main">
+
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <h2>💬 Coach Sportif IA</h2>
+        <span class="session-id" id="session-label">Nouvelle session</span>
+      </div>
+      <div class="header-stats" id="header-stats" style="display:none">
+        <div class="stat-mini">
+          <span class="stat-mini-val" id="mini-seances">0</span>
+          <span class="stat-mini-lbl">séances</span>
+        </div>
+        <div class="stat-mini">
+          <span class="stat-mini-val" id="mini-jours">0</span>
+          <span class="stat-mini-lbl">jours</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone messages -->
+    <div class="chat-messages" id="chat-messages">
+      <div class="loading-init" id="loading-init">
+        <div class="spinner"></div>
+        <p>Démarrage du coach...</p>
+      </div>
+    </div>
+
+    <!-- Boutons de réponse rapide -->
+    <div class="boutons-rapides" id="boutons-rapides"></div>
+
+    <!-- Zone de saisie -->
+    <div class="chat-input-zone">
+      <div class="input-wrapper">
+        <textarea
+          id="msg-input"
+          placeholder="Tapez votre message..."
+          rows="1"
+          disabled
+        ></textarea>
+        <button id="btn-envoyer" onclick="envoyerMessage()" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="input-aide">
+        Appuyez sur <kbd>Entrée</kbd> pour envoyer •
+        <span id="methode-detection" style="color:#aaa">En attente...</span>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Modal PDF -->
+<div class="modal" id="modal-pdf" style="display:none">
+  <div class="modal-content">
+    <h3>📄 PDF prêt !</h3>
+    <p>Votre programme sportif personnalisé a été généré.</p>
+    <a id="pdf-link" href="#" class="btn-download" download>
+      ⬇️ Télécharger le PDF
+    </a>
+    <button onclick="fermerModal()" class="btn-close">Fermer</button>
+  </div>
+</div>
+
+<script src="/static/js/chat.js"></script>
+</body>
+</html>
